@@ -8,9 +8,9 @@ import com.example.lab_7.R
 fun ImageView.setTypeImage(index: Int?) {
     index?.let {
         setImageResource(when (index) {
-            1 -> R.drawable.ic_photo_camera
-            2 -> R.drawable.ic_power
-            3 -> R.drawable.ic_room_service
+            1 -> R.drawable.camera_film
+            2 -> R.drawable.chart
+            3 -> R.drawable.starbucks
             else -> R.drawable.logo
         })
     }
