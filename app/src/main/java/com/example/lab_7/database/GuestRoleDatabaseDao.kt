@@ -1,10 +1,7 @@
 package com.example.lab_7.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface GuestRoleDatabaseDao {
@@ -15,8 +12,11 @@ interface GuestRoleDatabaseDao {
     @Update
     fun update(guest: GuestRole)
 
+    @Delete
+    fun delete(guest: GuestRole)
+
     @Query("SELECT * FROM guest_role_table WHERE id = :key")
-    fun getGuestRole(key:Long): GuestRole?
+    fun getGuestRole(key:Long): LiveData<GuestRole>
 
     @Query("SELECT * FROM guest_role_table")
     fun getGuestRoles(): LiveData<List<GuestRole>>
