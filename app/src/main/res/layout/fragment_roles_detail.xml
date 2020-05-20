@@ -17,12 +17,13 @@
         tools:context=".ui.rolesdetail.RolesDetailFragment">
 
 
-
         <TextView
             android:id="@+id/type_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewModel.guestRole.role}"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -35,7 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"
-            android:text="@{@string/icon_index_text(viewModel.guestRole.iconIndex)}"
+            android:text="@{viewModel.guestRole.description}"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

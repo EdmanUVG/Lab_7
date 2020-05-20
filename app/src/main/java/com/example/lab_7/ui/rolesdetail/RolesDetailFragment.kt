@@ -1,16 +1,16 @@
 package com.example.lab_7.ui.rolesdetail
 
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 
 import com.example.lab_7.R
 import com.example.lab_7.database.GuestDatabase
-import com.example.lab_7.database.GuestRole
 import com.example.lab_7.databinding.FragmentRolesDetailBinding
 
 class RolesDetailFragment : Fragment() {
@@ -52,9 +52,13 @@ class RolesDetailFragment : Fragment() {
         val guestRoleViewFragmentArgs by navArgs<RolesDetailFragmentArgs>()
 
         viewModelFactory = RolesDetailViewModelFactory(dataSource, guestRoleViewFragmentArgs.roleId)
-        viewModel = ViewModelProviders.of(this).get(RolesDetailViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(RolesDetailViewModel::class.java)
 
         binding.viewModel = viewModel
+
+        viewModel.guestRole.observe(viewLifecycleOwner, Observer {
+            (activity as AppCompatActivity).supportActionBar?.title = viewModel.guestRole.value?.role
+        })
 
     }
 
