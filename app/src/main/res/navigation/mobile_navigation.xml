@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.lab_7.ui.home.HomeFragment"
+        android:label="@string/title"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_about_fragment"
+            app:destination="@id/about_fragment" />
+        <action
+            android:id="@+id/action_nav_home_to_guest_fragment"
+            app:destination="@id/guest_fragment" />
+        <action
+            android:id="@+id/action_nav_home_to_register_fragment"
+            app:destination="@id/register_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/guest_fragment"
+        android:name="com.example.lab_7.ui.guest.GuestFragment"
+        android:label="@string/menu_guest"
+        tools:layout="@layout/fragment_guest">
+        <action
+            android:id="@+id/action_guest_fragment_to_add_fragment"
+            app:destination="@id/add_fragment" />
+        <action
+            android:id="@+id/action_guest_fragment_to_guest_detail_fragment"
+            app:destination="@id/guest_detail_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/about_fragment"
+        android:name="com.example.lab_7.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/register_fragment"
+        android:name="com.example.lab_7.ui.register.RegisterFragment"
+        android:label="@string/text_registrando">
+        <action
+            android:id="@+id/action_register_fragment_to_result_fragment"
+            app:destination="@id/result_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/result_fragment"
+        android:name="com.example.lab_7.ui.result.ResultFragment"
+        android:label="@string/text_resultado"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_result_fragment_to_register_fragment"
+            app:destination="@id/register_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/add_fragment"
+        android:name="com.example.lab_7.ui.add.AddFragment"
+        android:label="@string/text_agregar_invitado">
+        <action
+            android:id="@+id/action_add_fragment_to_guest_fragment"
+            app:destination="@id/guest_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/guest_detail_fragment"
+        android:name="com.example.lab_7.ui.guestdetail.GuestDetailFragment"
+        android:label="fragment_guest_detail"
+        tools:layout="@layout/fragment_guest_detail" >
+        <action
+            android:id="@+id/action_guest_detail_fragment_to_guest_fragment"
+            app:destination="@id/guest_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roles_fragment"
+        android:name="com.example.lab_7.ui.roles.RolesFragment"
+        android:label="@string/menu_roles">
+        <action
+            android:id="@+id/action_roles_fragment_to_add_roles_fragment"
+            app:destination="@id/add_roles_fragment" />
+        <action
+            android:id="@+id/action_roles_fragment_to_roles_detail_fragment"
+            app:destination="@id/roles_detail_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/add_roles_fragment"
+        android:name="com.example.lab_7.ui.addroles.AddRolesFragment"
+        android:label="@string/text_agregar_rol">
+        <action
+            android:id="@+id/action_add_roles_fragment_to_roles_fragment"
+            app:destination="@id/roles_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roles_detail_fragment"
+        android:name="com.example.lab_7.ui.rolesdetail.RolesDetailFragment"
+        android:label="RolesDetailFragment" >
+        <action
+            android:id="@+id/action_roles_detail_fragment_to_roles_fragment"
+            app:destination="@id/roles_fragment" />
+        <argument
+            android:name="roleId"
+            app:argType="long" />
+    </fragment>
+</navigation>
