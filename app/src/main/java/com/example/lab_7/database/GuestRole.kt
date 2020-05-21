@@ -24,6 +24,6 @@ data class GuestRole(
 
 ) {
     override fun toString(): String {
-        return role + description
+        return role
     }
 }

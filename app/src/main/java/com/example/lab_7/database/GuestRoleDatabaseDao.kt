@@ -18,7 +18,7 @@ interface GuestRoleDatabaseDao {
     @Query("SELECT * FROM guest_role_table WHERE id = :key")
     fun getGuestRole(key:Long): LiveData<GuestRole>
 
-    @Query("SELECT * FROM guest_role_table")
+    @Query("SELECT * FROM guest_role_table ORDER BY `order` DESC")
     fun getGuestRoles(): LiveData<List<GuestRole>>
 
     @Query("SELECT COUNT(*) FROM guest_role_table")

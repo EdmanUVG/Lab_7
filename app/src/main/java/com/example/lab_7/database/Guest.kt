@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey
         ForeignKey(entity = GuestRole::class,
             parentColumns = ["id"],
             childColumns = ["role_id"],
-            onDelete = ForeignKey.SET_DEFAULT
+            onDelete = ForeignKey.SET_NULL
         )
     ])
 data class Guest (

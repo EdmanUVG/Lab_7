@@ -16,9 +16,6 @@ interface GuestDatabaseDao {
     @Delete
     fun delete(guest: Guest)
 
-//    @Query("SELECT * FROM guest_table WHERE id = :key")
-//    fun getGuestWithRole(key: Long): LiveData<GuestWithRole>
-
     @Query("SELECT * FROM guest_table WHERE id = :key")
     fun getGuest(key: Long): LiveData<Guest>
 
@@ -31,9 +28,8 @@ interface GuestDatabaseDao {
     @Query("SELECT COUNT(registered) FROM guest_table WHERE registered = 1")
     fun getGuestsRegistered(): LiveData<Int>
 
-    @Query("SELECT g.*, r.role FROM guest_table g LEFT JOIN guest_role_table r ON g.role_id = r.id")
+    @Query("SELECT g.*, r.role, r.iconIndex FROM guest_table g LEFT JOIN guest_role_table r ON g.role_id = r.id ORDER BY r.`order` DESC")
     fun getGuestsWithRole(): LiveData<List<GuestWithRole>>
-
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addGuest(guest:Guest)
