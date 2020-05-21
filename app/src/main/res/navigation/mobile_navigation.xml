@@ -72,6 +72,9 @@
         <action
             android:id="@+id/action_guest_detail_fragment_to_guest_fragment"
             app:destination="@id/guest_fragment" />
+        <argument
+            android:name="guestId"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/roles_fragment"

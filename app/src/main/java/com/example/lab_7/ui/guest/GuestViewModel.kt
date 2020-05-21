@@ -10,22 +10,18 @@ import java.lang.StringBuilder
 
 class GuestViewModel(val database: GuestDatabaseDao) : ViewModel() {
 
-    private val guests = database.getGuestsWithRole()
+    val guests = database.getGuestsWithRole()
 
-    val guestsText = Transformations.map(guests) {
-        buildGuestsText(it)
+    private val _guestClicked = MutableLiveData<Long>()
+    val guestClicked: LiveData<Long>
+        get() = _guestClicked
+
+    fun onGuestClicked(roleId: Long) {
+        _guestClicked.value = roleId
     }
 
-    private fun buildGuestsText(guestsWithRole: List<GuestWithRole>) : String {
-        val guestsText = StringBuilder()
-        for (qwt in guestsWithRole) {
-            guestsText.append("Invitado: ${qwt.guest.guestId}\n" +
-                    "Nombre: ${qwt.guest.name}\n" +
-                    "Telefono: ${qwt.guest.phone}\n" +
-                    "Correo: ${qwt.guest.email}\n" +
-                    "Rol: ${qwt.role}\n\n")
-        }
-        return guestsText.toString()
+    fun onGuestClickedCompleted(){
+        _guestClicked.value = null
     }
 
 }

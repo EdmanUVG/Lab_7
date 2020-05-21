@@ -23,5 +23,4 @@ class RolesViewModel(val database: GuestRoleDatabaseDao) : ViewModel() {
     fun onGuestRolesClickedCompleted(){
         _guestRoleClicked.value = null
     }
-
 }

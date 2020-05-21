@@ -6,6 +6,6 @@ data class GuestWithRole (
     @Embedded
     val guest: Guest,
 
-
     val role: String
+
 )

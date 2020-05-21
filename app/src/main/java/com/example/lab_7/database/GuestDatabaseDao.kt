@@ -13,8 +13,14 @@ interface GuestDatabaseDao {
     @Update
     fun update(guest: Guest)
 
+    @Delete
+    fun delete(guest: Guest)
+
+//    @Query("SELECT * FROM guest_table WHERE id = :key")
+//    fun getGuestWithRole(key: Long): LiveData<GuestWithRole>
+
     @Query("SELECT * FROM guest_table WHERE id = :key")
-    fun getGuest(key: Long): Guest?
+    fun getGuest(key: Long): LiveData<Guest>
 
     @Query("SELECT * FROM guest_table ORDER BY id DESC")
     fun getGuests(): LiveData<List<Guest>>
