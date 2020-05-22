@@ -50,6 +50,12 @@
     <string name="title_android_guest">Registrando (%1$d/%2$d)</string>
     <string name="insert_the_icon_index">Insert the icon index</string>
 
+    <string name="text_role_description">Descripción: %1$s</string>
+
+    <string name="text_guest_phone">Teléfono: %1$s</string>
+    <string name="text_guest_email">Correo: %1$s</string>
+    <string name="text_guest_description">Descripción: %1$s</string>
+
     <string name="icon_index_text">%d</string>
 
 </resources>

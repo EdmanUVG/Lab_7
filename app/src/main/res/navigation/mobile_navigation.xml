@@ -53,6 +53,9 @@
         android:label="@string/text_resultado"
         tools:layout="@layout/fragment_result">
         <action
+            android:id="@+id/action_result_fragment_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
             android:id="@+id/action_result_fragment_to_register_fragment"
             app:destination="@id/register_fragment" />
     </fragment>

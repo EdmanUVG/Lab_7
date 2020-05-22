@@ -39,11 +39,11 @@
                 android:id="@+id/text_result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="70dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginBottom="50dp"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/text_registered"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_registro" />
 
@@ -51,20 +51,20 @@
                 android:id="@+id/text_registered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="70dp"
                 android:layout_marginTop="30dp"
                 android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_result" />
 
 
             <Button
                 android:id="@+id/button_restart"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
-                android:background="@color/btn_iniciar"
-                android:backgroundTint="@color/btn_iniciar"
+                android:background="@drawable/btn_rounded"
+                android:backgroundTint="@android:color/black"
                 android:text="@string/text_restart"
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -73,11 +73,11 @@
 
             <Button
                 android:id="@+id/button_see_guest"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:background="@color/btn_iniciar"
-                android:backgroundTint="@color/btn_iniciar"
+                android:background="@drawable/btn_rounded"
+                android:backgroundTint="@android:color/black"
                 android:text="@string/text_see_guest"
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
