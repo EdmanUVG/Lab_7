@@ -54,6 +54,8 @@
 
     <string name="text_guest_phone">Teléfono: %1$s</string>
     <string name="text_guest_email">Correo: %1$s</string>
+    <string name="text_guest_role"> (%1$s) </string>
+    <string name="text_guest_registered"> %1$b</string>
     <string name="text_guest_description">Descripción: %1$s</string>
 
     <string name="icon_index_text">%d</string>
