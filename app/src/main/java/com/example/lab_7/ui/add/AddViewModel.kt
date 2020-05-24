@@ -18,7 +18,7 @@ class AddViewModel(val database: GuestDatabaseDao,
 
     val email = MutableLiveData<String>()
 
-    val registered = MutableLiveData<Boolean>()
+    val registered = MutableLiveData<Int>()
 
     val rolesList = databaseRole.getGuestRoles()
 
@@ -35,7 +35,7 @@ class AddViewModel(val database: GuestDatabaseDao,
     private suspend fun insert(guestRole: GuestRole?) {
         withContext(Dispatchers.IO) {
             database.insert(Guest(name = name.value ?: "", phone = phone.value ?: "",
-                email = email.value ?: "", registered = registered.value ?: false , role_id = guestRole?.roleId ?: 0L)
+                email = email.value ?: "", registered = registered.value ?: 0 , role_id = guestRole?.roleId ?: 0L)
             )
         }
     }

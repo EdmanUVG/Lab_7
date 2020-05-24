@@ -65,7 +65,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.2.2'
     implementation 'androidx.navigation:navigation-ui:2.2.2'
 
-    // Room and Lifecycle dependencies
+    // Keyboard Visibility
+    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:3.0.0-RC2'
 
 
     //noinspection GradleDependency

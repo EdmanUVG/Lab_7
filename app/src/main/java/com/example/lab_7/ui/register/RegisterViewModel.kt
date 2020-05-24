@@ -53,7 +53,7 @@ class RegisterViewModel(val database: GuestDatabaseDao) : ViewModel() {
                     name = it.guest.name,
                     phone = it.guest.phone,
                     email = it.guest.email,
-                    registered = true,
+                    registered = 1,
                     role_id = it.guest.role_id)
             })
             Log.i("@Edman", "True")
@@ -75,7 +75,7 @@ class RegisterViewModel(val database: GuestDatabaseDao) : ViewModel() {
                     name = it.guest.name,
                     phone = it.guest.phone,
                     email = it.guest.email,
-                    registered = false,
+                    registered = 0,
                     role_id = it.guest.role_id)
             })
             Log.i("@Edman", "False")

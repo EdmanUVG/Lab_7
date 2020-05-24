@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.*
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
@@ -16,8 +17,9 @@ import com.example.lab_7.database.Guest
 import com.example.lab_7.database.GuestDatabase
 import com.example.lab_7.database.GuestRole
 import com.example.lab_7.databinding.FragmentAddBinding
+import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.coroutines.*
-
+import net.yslibrary.android.keyboardvisibilityevent.util.UIUtil
 
 
 class AddFragment : Fragment() {
@@ -78,8 +80,33 @@ class AddFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_save) {
-            viewModel.insertGuest(binding.spinner.selectedItem)
-            activity?.onBackPressed()
+            val name = editText_name.text.toString().trim()
+            val phone = editText_phone.text.toString().trim()
+            val email = editText_email.text.toString().trim()
+
+            if (name.isEmpty() && phone.isEmpty() && email.isEmpty()) {
+                editText_name.error = "Nombre requerido"
+                editText_name.requestFocus()
+                editText_phone.error = "Telefono requerido"
+                editText_phone.requestFocus()
+                editText_email.error = "Correo requerido"
+                editText_email.requestFocus()
+            } else if (name.isEmpty()) {
+                editText_name.error = "Nombre requerido"
+                editText_name.requestFocus()
+            } else if (phone.isEmpty()) {
+                editText_phone.error = "Telefono requerido"
+                editText_phone.requestFocus()
+            } else if (email.isEmpty()) {
+                editText_email.error = "Correo requerido"
+                editText_email.requestFocus()
+            } else {
+                viewModel.insertGuest(binding.spinner.selectedItem)
+                activity?.onBackPressed()
+                Toast.makeText(activity, "¡Invitado guardado exitosamente!", Toast.LENGTH_SHORT).show()
+
+                activity?.let { UIUtil.hideKeyboard(it) }
+            }
         }
         return super.onOptionsItemSelected(item)
     }
